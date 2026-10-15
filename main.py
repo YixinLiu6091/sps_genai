@@ -3,8 +3,10 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from app.bigram_model import BigramModel
 from app.embedding_model import calculate_embedding
+from CNN.api import router as cnn_router
 
 app = FastAPI()
+app.include_router(cnn_router)
 
 # Sample corpus for the bigram model
 corpus = [

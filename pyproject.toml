@@ -3,10 +3,16 @@ name = "sps-genai"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-requires-python = ">=3.13"
+requires-python = ">=3.12,<3.13"
 dependencies = [
     "fastapi[standard]>=0.142.2",
+    "pillow>=12.3.0",
+    "python-multipart>=0.0.32",
     "spacy>=3.8.16",
+    "torch>=2.14.1",
+    "torchvision>=0.29.1",
+    "tqdm>=4.70.1",
+    "uvicorn>=0.54.0",
 ]
 
 [project.scripts]

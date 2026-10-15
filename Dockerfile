@@ -15,6 +15,7 @@ ENV PATH="/root/.local/bin/:$PATH"
 
 # Set the working directory
 WORKDIR /code
+ENV UV_PYTHON=3.12
 
 # Copy the pyproject.toml and uv.lock files
 COPY pyproject.toml uv.lock README.md /code/
@@ -23,7 +24,7 @@ COPY pyproject.toml uv.lock README.md /code/
 COPY ./src /code/src
 
 # Install dependencies using uv
-RUN uv sync --frozen
+RUN uv sync --frozen --python 3.12
 
 # Download the spaCy English model
 RUN uv run python -m spacy download en_core_web_lg
@@ -31,6 +32,7 @@ RUN uv run python -m spacy download en_core_web_lg
 # Copy the application code
 COPY ./app /code/app
 COPY main.py /code/
+COPY ./CNN /code/CNN
 
 # Command to run the application
 CMD ["uv", "run", "fastapi", "run", "main.py", "--port", "80"]
