@@ -5,3 +5,7 @@ __pycache__/
 CNN/data/
 CNN/__pycache__/
 .venv/
+GAN/data/
+GAN/outputs/
+GAN/__pycache__/
+.DS_Store

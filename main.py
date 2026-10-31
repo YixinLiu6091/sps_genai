@@ -4,9 +4,11 @@ from pydantic import BaseModel
 from app.bigram_model import BigramModel
 from app.embedding_model import calculate_embedding
 from CNN.api import router as cnn_router
+from GAN.api import router as gan_router
 
 app = FastAPI()
 app.include_router(cnn_router)
+app.include_router(gan_router)
 
 # Sample corpus for the bigram model
 corpus = [
